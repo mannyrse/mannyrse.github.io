@@ -1,0 +1,223 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #FBFDFE;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Content */
+
+.intro-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(100vh - 60px);
+    color: #14548C;
+    text-align: center;
+}
+
+.name {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.hello-text {
+    font-size: 35px;
+    margin: 0px;
+}
+
+.major-minor-text {
+    font-size: 20px; 
+    margin: 0 20px;
+}
+
+/* Navigation */
+
+/* 
+sticky nav
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background-color: rgba(251, 253, 254, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 1000;
+    font-size: larger;
+    margin: auto;
+    max-width: 1200px;
+} */
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #FBFDFE; 
+    z-index: 1000;
+    font-size: larger;
+    margin: auto;
+    max-width: 1200px;
+    position: relative; 
+}
+
+.navigation-item:hover {
+    color:#3C71C1;
+}
+
+/* On hover, expand the underline from left to right */
+.navigation-item:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.navigation-item::after {
+    content: ''; /* Empty content for the pseudo-element */
+    position: absolute;
+    bottom: 0; /* Position it at the bottom of the text */
+    left: 0;
+    width: 0; /* Start with no width */
+    height: 2px; /* Height of the underline */
+    background-color: #3C71C1; /* Use the same color as the section header underline */
+    transition: width 0.3s ease, left 0.3s ease; /* Add transition for smooth animation */
+}
+
+.navigation-item {
+    position: relative;
+    margin-left: 10px;
+    color: #000; 
+    text-decoration: none; 
+    display: flex;
+    align-items: center;
+}
+
+.navigation-item img {
+    height: 30px;
+    width: auto;
+    vertical-align: middle;
+}
+
+.nav-items {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+/* .divider {
+    height: 20px;
+    width: 3px;
+    border-radius: 20px;
+    background-color: #14548C;
+    transform: translateY(15%);
+} */
+
+.logo {
+    color: #14548C;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Hamburger Icon (visible in mobile view) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+}
+/* Sections */
+
+.section-header {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 4px solid #3C71C1;
+    font-size: 25px;
+    font-weight: normal;
+    display: inline-block;
+}
+
+.featured-projects .section-header {
+    margin-bottom: 40px; 
+}
+
+.section-header-wrapper {
+    text-align: right;
+}
+
+.about-section, 
+.featured-projects {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px;
+    text-align: left;
+}
+
+.download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #FBFDFE;
+    border: 1px solid #14548C;
+    color: #14548C;
+    font-size: 1em;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+.download-button:hover {
+    background-color: #14548C;
+    color: #F0F0F0;
+}
+
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 40px;
+}
+
+.project {
+    text-align: center;
+}
+
+.project img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.project-title {
+    padding: 5px 0;
+    font-size: 1em;
+    color: #333;
+}
+
+/* Footer */
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px;
+    text-align: left;
+}
+
+.footer-logo {
+    font-weight: bold;
+    text-decoration: none;
+    color: #14548C; 
+    padding-bottom: 10px;
+    display: inline-block; 
+    border-bottom: 4px solid #3C71C1; 
+    margin-bottom: 10px;
+}
