@@ -169,51 +169,6 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-
-    .nav-items {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background-color: #FBFDFE;
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-        box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-        justify-content: center;
-        align-items: center;
-    }
-
-    .nav-items.open {
-        max-height: 500px; /* enough room for all items */
-    }
-
-    .nav-items ul {
-        flex-direction: column;
-        padding: 20px;
-        gap: 15px;
-    }
-
-    .nav-items li {
-        justify-content: center;
-    }
-
-    .divider {
-        display: block; 
-        width: 40px;   
-        height: 3px;
-        border-radius: 20px;
-        background-color: #14548C;
-        margin: 10px auto;
-    }
-}
-
-
 /* Sections */
 
 .section-header {
@@ -382,3 +337,61 @@ footer p {
     animation-delay: 4.5s; /* Wait for intro text to fade out */
 }
 
+/* Mobile Styles */
+@media (max-width: 768px) {
+
+    .intro-header {
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    
+    .name {
+        font-size: 36px;
+    }
+    
+    .hello-text,
+    .title {
+        font-size: 24px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-items {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #FBFDFE;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-items.open {
+        max-height: 500px; /* enough room for all items */
+    }
+
+    .nav-items ul {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .nav-items li {
+        justify-content: center;
+    }
+
+    .divider {
+        display: block; 
+        width: 40px;   
+        height: 3px;
+        border-radius: 20px;
+        background-color: #14548C;
+        margin: 10px auto;
+    }
+}

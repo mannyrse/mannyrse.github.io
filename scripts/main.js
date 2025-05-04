@@ -6,12 +6,21 @@ function loadHeader() {
             document.querySelector('body').insertAdjacentHTML('afterbegin', data);
             setActiveNavItem(); // Highlight active nav item
 
-            // Hamburger menu toggle
             const hamburger = document.querySelector('.hamburger');
             const navItems = document.querySelector('.nav-items');
+
             if (hamburger && navItems) {
+                // Click handler
                 hamburger.addEventListener('click', () => {
                     navItems.classList.toggle('open');
+                });
+
+                // Keyboard handler
+                hamburger.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+                        e.preventDefault(); // Prevent page scroll on space
+                        hamburger.click();
+                    }
                 });
             }
         })
