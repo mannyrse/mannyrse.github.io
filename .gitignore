@@ -1,0 +1,8 @@
+# Ignore tests folder
+tests/
+
+# Ignore node_modules
+node_modules/
+
+# Ignore build artifacts
+dist/

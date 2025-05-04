@@ -1,5 +1,5 @@
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: #FBFDFE;
     margin: 0;
     padding: 0;
@@ -13,7 +13,7 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: calc(100vh - 60px);
+    height: 100vh;
     color: #14548C;
     text-align: center;
 }
@@ -28,44 +28,29 @@ body {
     margin: 0px;
 }
 
-.major-minor-text {
-    font-size: 20px; 
+.title {
+    font-size: 35px; 
     margin: 0 20px;
 }
 
 /* Navigation */
 
-/* 
-sticky nav
 .navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
+    position: absolute;
+    top: 32px;
     left: 0;
     right: 0;
-    padding: 20px;
-    background-color: rgba(251, 253, 254, 0.2);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    z-index: 1000;
-    font-size: larger;
-    margin: auto;
-    max-width: 1200px;
-} */
-
-.navigation {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #FBFDFE; 
-    z-index: 1000;
+    padding: 20px 40px;
+    background-color: #FBFDFE;
     font-size: larger;
-    margin: auto;
-    max-width: 1200px;
-    position: relative; 
+    z-index: 1000;
+    box-sizing: border-box;
 }
 
 .navigation-item:hover {
@@ -91,11 +76,19 @@ sticky nav
 
 .navigation-item {
     position: relative;
-    margin-left: 10px;
     color: #000; 
     text-decoration: none; 
     display: flex;
     align-items: center;
+}
+
+.navigation-item.active {
+    color: #3C71C1;
+}
+
+.navigation-item.active::after {
+    width: 100%;
+    left: 0;
 }
 
 .navigation-item img {
@@ -110,31 +103,39 @@ sticky nav
     gap: 20px;
 }
 
-/* .divider {
+.divider {
     height: 20px;
     width: 3px;
     border-radius: 20px;
     background-color: #14548C;
-    transform: translateY(15%);
-} */
+    align-self: center;
+}
 
 .logo {
     color: #14548C;
     font-weight: bold;
     text-decoration: none;
+    position: relative;
+    display: inline-block;
 }
 
-/* Hamburger Icon (visible in mobile view) */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
+.logo::after {
+    content: '';
     position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1100;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3C71C1;
+    transition: width 0.3s ease, left 0.3s ease;
 }
+
+.logo:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
 /* Sections */
 
 .section-header {
@@ -204,7 +205,6 @@ sticky nav
 }
 
 /* Footer */
-
 .footer-content {
     max-width: 1200px;
     margin: auto;
@@ -214,10 +214,92 @@ sticky nav
 
 .footer-logo {
     font-weight: bold;
-    text-decoration: none;
-    color: #14548C; 
+    text-decoration: none; 
+    color: #14548C;
     padding-bottom: 10px;
-    display: inline-block; 
-    border-bottom: 4px solid #3C71C1; 
+    display: inline-block;
+    border-bottom: 4px solid #3C71C1;
     margin-bottom: 10px;
 }
+
+footer a {
+    display: block;
+    color: inherit; 
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+footer a:hover {
+    text-decoration: underline; 
+    color: #3C71C1; 
+}
+
+.footer-logo:hover {
+    text-decoration: none; 
+    color: #14548C; 
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+/* Intro Fade In Keyframes */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.fade-in.delay-1 {
+    animation-delay: 0.3s;
+}
+
+.fade-in.delay-2 {
+    animation-delay: 0.6s;
+}
+
+.fade-in.delay-3 {
+    animation-delay: 0.9s;
+}
+
+.fade-in.delay-4 {
+    animation-delay: 1.5s;
+}
+
+/* Initially hide the coming soon text */
+.hidden {
+    display: none;
+}
+
+/* Fade-in animation for the coming soon text */
+@keyframes fadeInComingSoon {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-coming-soon {
+    opacity: 0;
+    animation: fadeInComingSoon 1s ease-out forwards;
+}
+
+.fade-in-coming-soon.delay {
+    animation-delay: 4.5s; /* Wait for intro text to fade out */
+}
+
