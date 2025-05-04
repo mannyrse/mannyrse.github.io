@@ -1,11 +1,19 @@
-// Load header and call setActiveNavItem after it's loaded
+// Load header
 function loadHeader() {
     fetch('../includes/header.html')
         .then(response => response.text())
         .then(data => {
             document.querySelector('body').insertAdjacentHTML('afterbegin', data);
-            setActiveNavItem();       // Highlight active nav item
-            enablePageTransitions();  // Apply fade-out on link click
+            setActiveNavItem(); // Highlight active nav item
+
+            // Hamburger menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navItems = document.querySelector('.nav-items');
+            if (hamburger && navItems) {
+                hamburger.addEventListener('click', () => {
+                    navItems.classList.toggle('open');
+                });
+            }
         })
         .catch(err => console.error('Error loading header:', err));
 }
@@ -22,13 +30,18 @@ function loadFooter() {
 
 // Highlight the current page's nav item
 function setActiveNavItem() {
-    const path = window.location.pathname;
+    const path = window.location.pathname.replace(/\/index\.html$/, '/');
     const navLinks = document.querySelectorAll('.navigation-item');
 
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
         if (!href || href === '#') return;
-        if (path.endsWith(href)) {
+
+        // Normalize both to end with a trailing slash for comparison
+        const normalizedHref = href.endsWith('/') ? href : href + '/';
+        const normalizedPath = path.endsWith('/') ? path : path + '/';
+
+        if (normalizedPath === normalizedHref) {
             link.classList.add('active');
         }
     });
@@ -63,3 +76,4 @@ document.addEventListener('DOMContentLoaded', () => {
         setupIntroAnimation();
     }
 });
+

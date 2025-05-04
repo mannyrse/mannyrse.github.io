@@ -33,7 +33,7 @@ body {
     margin: 0 20px;
 }
 
-/* Navigation */
+/* Navigation Bar*/
 
 .navigation {
     position: absolute;
@@ -53,33 +53,60 @@ body {
     box-sizing: border-box;
 }
 
-.navigation-item:hover {
-    color:#3C71C1;
+.nav-items ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-/* On hover, expand the underline from left to right */
-.navigation-item:hover::after {
-    width: 100%;
-    left: 0;
+.nav-items li {
+    display: flex;
+    align-items: center;
 }
 
-.navigation-item::after {
-    content: ''; /* Empty content for the pseudo-element */
-    position: absolute;
-    bottom: 0; /* Position it at the bottom of the text */
-    left: 0;
-    width: 0; /* Start with no width */
-    height: 2px; /* Height of the underline */
-    background-color: #3C71C1; /* Use the same color as the section header underline */
-    transition: width 0.3s ease, left 0.3s ease; /* Add transition for smooth animation */
+/* Divider */
+.divider {
+    height: 20px;
+    width: 3px;
+    border-radius: 20px;
+    background-color: #14548C;
 }
 
+/* Navigation Items */
 .navigation-item {
     position: relative;
     color: #000; 
     text-decoration: none; 
     display: flex;
     align-items: center;
+}
+
+.navigation-item:hover {
+    color: #3C71C1;
+}
+
+/* Underline effect */
+.navigation-item::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3C71C1;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+/* Adjust underline position for LinkedIn Logo*/
+.navigation-item:has(img)::after {
+    bottom: -1px;
+}
+
+.navigation-item:hover::after {
+    width: 100%;
+    left: 0;
 }
 
 .navigation-item.active {
@@ -95,20 +122,6 @@ body {
     height: 30px;
     width: auto;
     vertical-align: middle;
-}
-
-.nav-items {
-    display: flex;
-    justify-content: flex-start;
-    gap: 20px;
-}
-
-.divider {
-    height: 20px;
-    width: 3px;
-    border-radius: 20px;
-    background-color: #14548C;
-    align-self: center;
 }
 
 .logo {
@@ -133,6 +146,71 @@ body {
 .logo:hover::after {
     width: 100%;
     left: 0;
+}
+
+/* Hamburger Button */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    background-color: #14548C;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-items {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #FBFDFE;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-items.open {
+        max-height: 500px; /* enough room for all items */
+    }
+
+    .nav-items ul {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .nav-items li {
+        justify-content: center;
+    }
+
+    .divider {
+        display: block; 
+        width: 40px;   
+        height: 3px;
+        border-radius: 20px;
+        background-color: #14548C;
+        margin: 10px auto;
+    }
 }
 
 
@@ -205,6 +283,7 @@ body {
 }
 
 /* Footer */
+
 .footer-content {
     max-width: 1200px;
     margin: auto;
