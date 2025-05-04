@@ -34,22 +34,6 @@ function setActiveNavItem() {
     });
 }
 
-// Smooth page transitions (fade out before navigation)
-function enablePageTransitions() {
-    document.querySelectorAll('a.navigation-item').forEach(link => {
-        const href = link.getAttribute('href');
-        if (!href || href.startsWith('#') || link.hasAttribute('target')) return;
-
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            document.body.classList.add('fade-out');
-            setTimeout(() => {
-                window.location.href = link.href;
-            }, 300); // Match the CSS transition duration
-        });
-    });
-}
-
 // Intro animation + coming soon logic
 function setupIntroAnimation() {
     const introElements = document.querySelectorAll('.hello-text, .name, .title');
