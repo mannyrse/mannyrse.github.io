@@ -56,22 +56,13 @@ function setActiveNavItem() {
     });
 }
 
-// Intro animation + coming soon logic
+// Intro animation logic (removed "coming soon" fade-in)
 function setupIntroAnimation() {
     const introElements = document.querySelectorAll('.hello-text, .name, .title');
-    const comingSoon = document.querySelector('.coming-soon-text');
 
     setTimeout(() => {
-        introElements.forEach(el => el.classList.add('fade-out'));
-
-        setTimeout(() => {
-            introElements.forEach(el => el.style.display = 'none');
-            if (comingSoon) {
-                comingSoon.classList.remove('hidden');
-                comingSoon.classList.add('fade-in-coming-soon');
-            }
-        }, 1000);
-    }, 6000); // 6 seconds before starting the fade-out
+        introElements.forEach(el => el.classList.remove('fade-out'));
+    }, 6000); // 6 seconds delay before triggering anything
 }
 
 // Run when DOM is fully loaded

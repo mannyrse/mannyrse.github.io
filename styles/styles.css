@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: #FBFDFE;
@@ -19,7 +23,7 @@ body {
 }
 
 .name {
-    font-size: 50px;
+    font-size: 55px;
     font-weight: bold;
 }
 
@@ -33,7 +37,7 @@ body {
     margin: 0 20px;
 }
 
-/* Navigation Bar*/
+/* Navigation Bar */
 
 .navigation {
     position: absolute;
@@ -99,7 +103,7 @@ body {
     transition: width 0.3s ease, left 0.3s ease;
 }
 
-/* Adjust underline position for LinkedIn Logo*/
+/* Adjust underline position for LinkedIn Logo */
 .navigation-item:has(img)::after {
     bottom: -1px;
 }
@@ -180,7 +184,7 @@ body {
     display: inline-block;
 }
 
-.featured-projects .section-header {
+.left-content .section-header {
     margin-bottom: 40px; 
 }
 
@@ -188,21 +192,28 @@ body {
     text-align: right;
 }
 
-.about-section, 
-.featured-projects {
+.left-content, 
+.right-content {
     max-width: 1200px;
     margin: auto;
     padding: 40px;
     text-align: left;
 }
 
+.left-content p,
+.right-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
 .download-button {
     display: inline-block;
     padding: 10px 20px;
     margin-top: 20px;
-    background-color: #FBFDFE;
+    color: #FBFDFE;
     border: 1px solid #14548C;
-    color: #14548C;
+    background-color: #14548C;
     font-size: 1em;
     border-radius: 30px;
     text-decoration: none;
@@ -210,10 +221,9 @@ body {
 }
 
 .download-button:hover {
-    background-color: #14548C;
-    color: #F0F0F0;
+    color: #14548C;
+    background-color: #FBFDFE;
 }
-
 
 .projects-grid {
     display: grid;
@@ -222,19 +232,88 @@ body {
 }
 
 .project {
-    text-align: center;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    height: 100%;
 }
 
 .project img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
+    object-fit: cover;
+    max-height: 400px;
+    aspect-ratio: 4 / 3;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: brightness(70%);
+    border-radius: 0;
+}
+
+/* Dark overlay and zoom effect */
+.project:hover img {
+    transform: scale(1.1);
+    filter: brightness(100%);
+}
+
+.image-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    z-index: 1;
 }
 
 .project-title {
-    padding: 5px 0;
-    font-size: 1em;
-    color: #333;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    margin: 0;
+    color: #FBFDFE;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.view-all-projects {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.view-all-link {
+    position: relative;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.view-all-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3C71C1;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.view-all-link:hover {
+    color: #3C71C1;
+}
+
+.view-all-link:hover::after {
+    width: 100%;
+    left: 0;
 }
 
 /* Footer */
@@ -258,6 +337,7 @@ body {
 
 footer a {
     display: block;
+    width: fit-content;
     color: inherit; 
     text-decoration: none;
     margin-bottom: 10px;
@@ -311,32 +391,6 @@ footer p {
     animation-delay: 1.5s;
 }
 
-/* Initially hide the coming soon text */
-.hidden {
-    display: none;
-}
-
-/* Fade-in animation for the coming soon text */
-@keyframes fadeInComingSoon {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in-coming-soon {
-    opacity: 0;
-    animation: fadeInComingSoon 1s ease-out forwards;
-}
-
-.fade-in-coming-soon.delay {
-    animation-delay: 4.5s; /* Wait for intro text to fade out */
-}
-
 /* Mobile Styles */
 @media (max-width: 768px) {
 
@@ -373,7 +427,7 @@ footer p {
     }
 
     .nav-items.open {
-        max-height: 500px; /* enough room for all items */
+        max-height: 500px;
     }
 
     .nav-items ul {
@@ -393,5 +447,14 @@ footer p {
         border-radius: 20px;
         background-color: #14548C;
         margin: 10px auto;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project img {
+        max-width: 100%;
+        max-height: 450px;
     }
 }
