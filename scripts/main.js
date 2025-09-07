@@ -1,79 +1,37 @@
-// Load header
-function loadHeader() {
-    fetch('../includes/header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.querySelector('body').insertAdjacentHTML('afterbegin', data);
-            setActiveNavItem(); // Highlight active nav item
+document.addEventListener("DOMContentLoaded", () => {
+    const toggleBtns = document.querySelectorAll(".light-mode-toggler");
+    const socialIcons = document.querySelectorAll(".social-icon");
 
-            const hamburger = document.querySelector('.hamburger');
-            const navItems = document.querySelector('.nav-items');
+    toggleBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            // Toggle light-mode class on body
+            document.body.classList.toggle("light-mode");
 
-            if (hamburger && navItems) {
-                // Click handler
-                hamburger.addEventListener('click', () => {
-                    navItems.classList.toggle('open');
-                });
+            // Update all light/dark mode toggle icons
+            toggleBtns.forEach(b => {
+                const icon = b.querySelector("img");
+                if (document.body.classList.contains("light-mode")) {
+                    icon.src = "images/icons/moon.png";
+                    icon.alt = "dark mode";
+                } else {
+                    icon.src = "images/icons/sun.png";
+                    icon.alt = "light mode";
+                }
+            });
 
-                // Keyboard handler
-                hamburger.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
-                        e.preventDefault(); // Prevent page scroll on space
-                        hamburger.click();
-                    }
-                });
-            }
-        })
-        .catch(err => console.error('Error loading header:', err));
-}
-
-// Load footer
-function loadFooter() {
-    fetch('../includes/footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.querySelector('body').insertAdjacentHTML('beforeend', data);
-        })
-        .catch(err => console.error('Error loading footer:', err));
-}
-
-// Highlight the current page's nav item
-function setActiveNavItem() {
-    const path = window.location.pathname.replace(/\/index\.html$/, '/');
-    const navLinks = document.querySelectorAll('.navigation-item');
-
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (!href || href === '#') return;
-
-        // Normalize both to end with a trailing slash for comparison
-        const normalizedHref = href.endsWith('/') ? href : href + '/';
-        const normalizedPath = path.endsWith('/') ? path : path + '/';
-
-        if (normalizedPath === normalizedHref) {
-            link.classList.add('active');
-        }
+            // Update all social/external icons
+            socialIcons.forEach(icon => {
+                const baseSrc = icon.src.replace("-dark.png", ".png"); // remove -dark if present
+                if (document.body.classList.contains("light-mode")) {
+                    // switch to dark variant
+                    const ext = baseSrc.split(".").pop();
+                    const darkSrc = baseSrc.replace(`.${ext}`, `-dark.${ext}`);
+                    icon.src = darkSrc;
+                } else {
+                    // switch back to light variant
+                    icon.src = baseSrc;
+                }
+            });
+        });
     });
-}
-
-// Intro animation logic (removed "coming soon" fade-in)
-function setupIntroAnimation() {
-    const introElements = document.querySelectorAll('.hello-text, .name, .title');
-
-    setTimeout(() => {
-        introElements.forEach(el => el.classList.remove('fade-out'));
-    }, 6000); // 6 seconds delay before triggering anything
-}
-
-// Run when DOM is fully loaded
-document.addEventListener('DOMContentLoaded', () => {
-    loadHeader();
-    loadFooter();
-
-    // Only run the intro animation on the main homepage
-    const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
-    if (isHomePage) {
-        setupIntroAnimation();
-    }
 });
-

@@ -5,79 +5,379 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mannyrse</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
+    <!-- nav bar -->
+    <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+        <div class="container px-5 px-md-3 px-lg-5">
 
-    <!-- The header (nav) will be loaded here by JavaScript -->
-    <!-- The footer will also be loaded by JavaScript -->
+            <!-- logo -->
+            <a href="#about" class="logo navbar-brand">mannyrse</a>
 
-    <header class="intro-header">
-        <p class="hello-text fade-in fade-out delay-1">Hello, I'm</p>
-        <h1 class="name fade-in delay-2">Manny-Riki Estrada</h1>
-        <p class="title fade-in delay-3">
-            Front-End Developer
-        </p>
-    </header>
+            <!-- hamburger button -->
+            <button class="navbar-toggler border-0 ms-auto" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <section class="left-content" id="about">
-        <h2 class="section-header">about me</h2>
-        <p>I’m a 2024 graduate of the University of Wisconsin – Stevens Point, with a major in Computer Information
-            Systems and a minor in Web Development. I enjoy turning ideas into well-crafted digital experiences.</p>
-        <p>I’m passionate about creating digital experiences that feel effortless. I focus on clean, minimal design and
-            intuitive interfaces that prioritize clarity and usability. My work is driven by a belief that simplicity
-            isn’t just a style — it’s a mindset.</p>
-        <a href="resume_estrada.pdf" class="download-button" download>download resume</a>
-    </section>
+            <!-- nav items -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarContent">
+                <ul class="navbar-nav mb-0 text-center">
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link mx-2">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#projects" class="nav-link mx-2">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link mx-2">Contact</a>
+                    </li>
+                </ul>
 
-    <section class="right-content" id="featured-projects">
-        <div class="section-header-wrapper">
-            <h2 class="section-header">featured projects</h2>
-            <div class="projects-grid">
-                <div class="project">
-                    <a href="https://mannyrse.com/fowler-dispatching/" target="_blank" rel="noopener noreferrer">
-                        <div class="image-wrapper">
-                            <img src="/images/fowlersite.png" alt="Fowler Dispatching Demo Site Thumbnail" />
-                            <p class="project-title">Fowler Dispatching Demo Site</p>
-                        </div>
-                    </a>
+                <!-- dark mode button for mobile menu -->
+                <div class="d-md-none text-center">
+                    <button class="btn btn-square light-mode-toggler">
+                        <img src="images/icons/sun.png" alt="light dark mode" class="icon">
+                    </button>
                 </div>
-                <div class="project">
-                    <a href="https://lolskinsale.com/" target="_blank" rel="noopener noreferrer">
-                        <div class="image-wrapper">
-                            <img src="/images/lolskinsale.png" alt="LoL Skin Sale Thumbnail" />
-                            <p class="project-title">LoL Skin Sale Website</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="project">
-                    <a href="https://saxevilleunioncemetery.com/" target="_blank" rel="noopener noreferrer">
-                        <div class="image-wrapper">
+            </div>
 
-                            <img src="/images/saxeville.png" alt="Saxeville Union Cemetery Site Thumbnail" />
-                            <p class="project-title">Saxeville Union Cemetery Website</p>
-                        </div>
-                    </a>
+
+            <button class="btn btn-square d-none d-md-block ms-3 light-mode-toggler">
+                <img src="images/icons/sun.png" alt="light dark mode" class="icon">
+            </button>
+
+        </div>
+    </nav>
+
+
+    <!-- header content -->
+    <header class="intro-header d-flex align-items-center" id="about">
+        <div class="container px-5 px-md-3 px-lg-5">
+            <div class="row align-items-center">
+                <!-- left column -->
+                <div class="col-md-6 mb-5 mb-md-0">
+                    <p class="title">Hey, I'm</p>
+                    <h1 class="name ">Manny Estrada</h1>
+                    <p class="title">Front-End Developer</p>
+                    <p class="pb-4 pe-md-5">
+                        I’m passionate about creating digital experiences that feel effortless. I focus on clean,
+                        minimal design and intuitive interfaces that prioritize clarity and usability. My work is driven
+                        by a belief that simplicity isn’t just a style — it’s a mindset.
+                    </p>
+                    <a href="resume_estrada.pdf" class="btn button-main mt-3"
+                        download="Manny_Estrada_Resume.pdf">Download Resume</a>
                 </div>
-                <div class="project">
-                    <a href="https://github.com/mannyrse/2AM-Cameraman" target="_blank" rel="noopener noreferrer">
-                        <div class="image-wrapper">
-                            <img src="/images/2amcameraman.png" alt="2AM Cameraman Site Thumbnail" />
-                            <p class="project-title">2AM Cameraman Personal Portfolio</p>
+
+                <!-- right column -->
+                <div class="col-md-6 d-flex justify-content-center pb-5 pb-md-4 pb-lg-0">
+
+                    <div class="vscode" role="group" aria-label="Mini VS Code">
+                        <!-- titlebar -->
+                        <div class="titlebar">
+                            <div class="traffic" aria-hidden="true">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="window-title">Visual Studio Code</div>
                         </div>
-                    </a>
+
+                        <!-- tabs -->
+                        <div class="tabs" role="tablist" aria-label="Files">
+                            <div class="tab active" role="tab" aria-selected="true">
+                                <span class="file-icon" aria-hidden="true"></span>
+                                <span>about.js</span>
+                                <span class="x" aria-hidden="true">×</span>
+                            </div>
+                        </div>
+
+                        <!-- editor -->
+                        <div class="editor" role="region" aria-label="Editor">
+                            <pre><code><span class="v">const</span> about <span class="v">=</span> {
+  <span class="k">name</span>: <span class="s">"Manny Estrada"</span>,
+  <span class="k">role</span>: <span class="s">"Front-End Developer"</span>,
+  <span class="k">location</span>: <span class="s">"Jacksonville, NC"</span>,
+  <span class="k">experience</span>: <span class="s">"5+ years"</span>,
+  <span class="k">loves</span>: [<span class="s">"React"</span>, <span class="s">"Node.js"</span>, <span class="s">"TypeScript"</span>],
+  <span class="k">status</span>: <span class="s">"available_for_hire"</span>
+};</code></pre>
+                        </div>
+                        <!-- Status bar -->
+                        <div class="status">
+                            <span>UTF-8</span>
+                            <span class="muted">CRLF</span>
+                            <span class="muted">JavaScript</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="view-all-projects">
-            <a href="/projects" class="view-all-link">View All Projects</a>
+    </header>
+
+    <!-- featured projects section -->
+    <section class="py-5" id="projects">
+        <div class="container px-5 px-md-3 px-lg-5">
+            <h2 class="fw-bold py-3">Featured Projects</h2>
+            <!-- project 1 -->
+            <div class="row my-5">
+                <div class="col-md-6">
+                    <img src="images/thumbnails/lolskinsale.png" alt="" class="img-fluid featured-project">
+                </div>
+                <div class="col-md-6 d-flex flex-column ps-lg-5">
+                    <h3 class="mb-3 pt-5 pt-md-0">League of Legends Weekly Skin Sale Site</h3>
+                    <!-- Group paragraph + badges together and center them -->
+                    <div class="flex-grow-1 d-flex flex-column justify-content-center mb-4">
+                        <p class="mb-2">
+                            League of Legends Weekly Skin Sale website – View the current week's featured skin sales and
+                            review past sale history.
+                            Pulls live data from a personal Google Sheets API and Riot Games Data Dragon to keep
+                            information accurate and up-to-date.
+                        </p>
+
+                        <div>
+                            <span class="badge bg-dark me-2">HTML5</span>
+                            <span class="badge bg-dark me-2">CSS3</span>
+                            <span class="badge bg-dark">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-auto">
+                        <a href="https://lolskinsale.com/"
+                            class="me-3 link d-inline-flex align-items-center featured-project-link" target="_blank">
+                            <img src="images/icons/link.png" alt="external link icon"
+                                class="icon social-icon me-2">Visit Website
+                        </a>
+                        <a href="https://github.com/mannyrse/lol-skin-sales"
+                            class="link d-inline-flex align-items-center featured-project-link" target="_blank">
+                            <img src="images/icons/github.png" alt="" class="icon social-icon me-2">Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- project 2 -->
+            <div class="row my-5">
+                <div class="col-md-6 order-md-2">
+                    <img src="images/thumbnails/saxeville.png" alt="" class="img-fluid featured-project">
+                </div>
+                <div class="col-md-6 order-md-1 d-flex flex-column pe-lg-5">
+                    <h3 class="mb-3 pt-5 pt-md-0">Saxeville Union Cemetery Site</h3>
+                    <!-- Group paragraph + badges together and center them -->
+                    <div class="flex-grow-1 d-flex flex-column justify-content-center mb-4">
+                        <p class="mb-2">
+                            Capstone project for the Saxeville Union Cemetery. Designed and built an interactive map
+                            using QGIS
+                            featuring 1,000+ plots, with detailed data available for over 800 plots. Made with
+                            WordPress, the site allows
+                            visitors to explore cemetery records easily and efficiently.
+                        </p>
+                        <div>
+                            <span class="badge bg-dark me-2">WordPress</span>
+                            <span class="badge bg-dark me-2">PHP</span>
+                            <span class="badge bg-dark">QGIS</span>
+                        </div>
+                    </div>
+                    <!-- Links container -->
+                    <div class="mt-auto">
+                        <a href="https://saxevilleunioncemetery.com/"
+                            class="me-3 link d-inline-flex align-items-center featured-project-link" target="_blank">
+                            <img src="images/icons/link.png" alt="" class="icon social-icon me-2">Visit Website
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- project 3 -->
+            <div class="row my-5 align-items-stretch">
+                <!-- Image column -->
+                <div class="col-md-6">
+                    <img src="images/thumbnails/2amcameraman.png" alt="2AM Cameraman site thumbnail"
+                        class="img-fluid featured-project">
+                </div>
+                <!-- Text column -->
+                <div class="col-md-6 d-flex flex-column ps-lg-5">
+                    <h3 class="mb-3 pt-5 pt-md-0">2AM Cameraman Site</h3>
+                    <!-- Group paragraph + badges together and center them -->
+                    <div class="flex-grow-1 d-flex flex-column justify-content-center mb-4">
+                        <p class="mb-2">
+                            Personal portfolio site for 2AM Cameraman, designed with a desktop-inspired aesthetic.
+                            Created to showcase the client’s work and style in a visually engaging, professional format.
+                        </p>
+
+                        <div class="">
+                            <span class="badge bg-dark me-2">HTML5</span>
+                            <span class="badge bg-dark me-2">CSS3</span>
+                            <span class="badge bg-dark">JavaScript</span>
+                        </div>
+                    </div>
+                    <!-- Links container -->
+                    <div class="mt-auto">
+                        <!-- <a href="#" class="me-3 link d-inline-flex align-items-center featured-project-link">
+                            <img src="images/icons/link.png" alt="" class="icon social-icon me-2">Visit Website
+                        </a> -->
+                        <a href="https://github.com/mannyrse/2AM-Cameraman"
+                            class="link d-inline-flex align-items-center featured-project-link" target="_blank">
+                            <img src="images/icons/github.png" alt="exteral link icon"
+                                class="icon social-icon me-2">Source Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- project 4 -->
+            <div class="row my-5">
+                <div class="col-md-6 order-md-2">
+                    <img src="images/thumbnails/fowlersite.png" alt="" class="img-fluid featured-project">
+                </div>
+                <div class="col-md-6 order-md-1 d-flex flex-column pe-lg-5">
+                    <h3 class="mb-3 pt-5 pt-md-0">Fowler Dispatching Site</h3>
+                    <!-- Group paragraph + badges together and center them -->
+                    <div class="flex-grow-1 d-flex flex-column justify-content-center mb-4">
+                        <p class="mb-2">
+                            Fowler Dispatching site, initially a university course mockup project that was later
+                            developed into a functional demo site for Fowler Dispatching.
+                        </p>
+
+                        <div>
+                            <span class="badge bg-dark me-2">HTML5</span>
+                            <span class="badge bg-dark me-2">CSS3</span>
+                            <span class="badge bg-dark me-2">BootStrap</span>
+                            <span class="badge bg-dark">JavaScript</span>
+                        </div>
+                    </div>
+                    <!-- Links container -->
+                    <div class="mt-auto">
+                        <a href="https://mannyrse.com/fowler-dispatching/"
+                            class="me-3 link d-inline-flex align-items-center featured-project-link" target="_blank">
+                            <img src="images/icons/link.png" alt="external link icon"
+                                class="icon social-icon me-2">Visit Website
+                        </a>
+                        <a href="https://github.com/mannyrse/fowler-dispatching"
+                            class="link d-inline-flex align-items-center featured-project-link" target="_blank">
+                            <img src="images/icons/github.png" alt="github icon" class="icon social-icon me-2">Source
+                            Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- more projects button -->
+            <div class="more-proj text-center">
+                <div class="row justify-content-center">
+                    <div class="col-10 col-lg-12">
+                        <p class="pt-3">Interested in seeing more of my work? Check out my GitHub for
+                            additional
+                            projects.</p>
+                    </div>
+                </div>
+                <a href="https://github.com/mannyrse?tab=repositories" class="btn button-main mb-3" target="_blank">View
+                    All Repositories</a>
+            </div>
+
         </div>
     </section>
+
+    <!-- contact section -->
+    <section class="section-contact py-5" id="contact">
+        <div class="container px-5 px-md-3 px-lg-5">
+            <h2 class="fw-bold mb-5">Get in Touch</h2>
+            <div class="row gy-4">
+
+                <!-- left column -->
+                <div class="col-md-6 pb-5 pb-md-4 pb-lg-0">
+
+                    <div class="vscode" role="group" aria-label="Mini VS Code">
+                        <!-- titlebar -->
+                        <div class="titlebar">
+                            <div class="traffic" aria-hidden="true">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <div class="window-title">Visual Studio Code</div>
+                        </div>
+
+                        <!-- tabs -->
+                        <div class="tabs" role="tablist" aria-label="Files">
+                            <div class="tab active" role="tab" aria-selected="true">
+                                <span class="file-icon-read" aria-hidden="true"></span>
+                                <span>README.md</span>
+                                <span class="x" aria-hidden="true">×</span>
+                            </div>
+                        </div>
+
+                        <!-- editor -->
+                        <div class="editor" role="region" aria-label="Editor">
+                            <pre><code># Thanks for visiting my site
+
+Interested in working together?
+
+Feel free to reach out via email or LinkedIn
+
+</code></pre>
+                        </div>
+                        <!-- Status bar -->
+                        <div class="status">
+                            <span>UTF-8</span>
+                            <span class="muted">CRLF</span>
+                            <span class="muted">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- right column -->
+                <div class="col-md-6 pe-lg-5">
+                    <p class="mb-4">
+                        I'm always excited to collaborate on interesting projects or explore new opportunities. Whether
+                        you have a question, a project idea, or just want to connect, feel free to reach out.
+                    </p>
+                    <div class="mb-4">
+                        <p class="mb-2"><strong>Email:</strong> mannyrse@gmail.com</p>
+                        <p class="mb-2"><strong><a href="https://www.linkedin.com/in/mannyrse/">LinkedIn</a></strong>
+                        </p>
+                        <p class="mb-2"><strong><a href="https://github.com/mannyrse">GitHub</a></strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+
+    <footer class="footer py-4">
+        <div class="container px-5 px-md-3 px-lg-5 d-flex justify-content-between align-items-center">
+
+            <!-- Logo -->
+            <a href="#about" class="logo mb-0">mannyrse</a>
+
+            <!-- Social icons -->
+            <div>
+                <a href="https://github.com/mannyrse" class="me-3" target="_blank" rel="noopener">
+                    <img src="images/icons/github.png" alt="GitHub" class="icon social-icon">
+                </a>
+                <a href="https://www.linkedin.com/in/mannyrse/" target="_blank" rel="noopener">
+                    <img src="images/icons/linkedin.png" alt="LinkedIn" class="icon social-icon">
+                </a>
+            </div>
+        </div>
+
+        <!-- Copyright line -->
+        <div class="container px-5 px-md-3 px-lg-5 mt-3">
+            <p class="mb-0">© 2025 Manny Estrada. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 
     <script src="scripts/main.js"></script>
 
