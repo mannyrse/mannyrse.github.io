@@ -472,15 +472,11 @@ p {
 /* Light mode hover */
 body.light-mode .button-main:hover {
     color: #1a1a1a;
-    /* Text color on hover */
     background-color: #f4f4f4;
-    /* Background on hover */
     border: 1px solid #1a1a1a;
-    /* Border on hover */
 }
 
 .button-main,
 body.light-mode .button-main {
     transition: all 0.3s ease;
-    /* or transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; */
 }
