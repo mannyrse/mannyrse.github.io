@@ -480,3 +480,24 @@ body.light-mode .button-main:hover {
 body.light-mode .button-main {
     transition: all 0.3s ease;
 }
+
+/* animated underline for section headings on scroll */
+.section-heading {
+    display: inline-block;
+    position: relative;
+}
+
+.section-heading::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: currentColor;
+    transition: width 0.4s ease;
+}
+
+.section-heading.in-view::after {
+    width: 100%;
+}

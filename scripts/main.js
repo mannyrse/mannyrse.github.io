@@ -34,4 +34,16 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     });
+
+    const headings = document.querySelectorAll('.section-heading');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            entry.target.classList.toggle('in-view', entry.isIntersecting);
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    headings.forEach(heading => observer.observe(heading));
 });
